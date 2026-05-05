@@ -114,8 +114,8 @@ Admin ────────────────────────�
 
 ### 1. Clone
 ```bash
-git clone https://github.com/Neerajvs32/Test1.git
-cd Test1
+git clone https://github.com/darshan-gowdaa/admin-portal-backend-py-flask.git
+cd admin-portal-backend-py-flask
 ```
 
 ### 2. Virtual environment (recommended)
