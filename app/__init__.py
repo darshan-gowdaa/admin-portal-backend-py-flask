@@ -19,7 +19,11 @@ def create_app():
     app.config['SECRET_KEY']                  = os.environ.get('SECRET_KEY', 'change-me-in-production-abc123xyz')
     app.config['SQLALCHEMY_DATABASE_URI']     = 'sqlite:///' + os.path.join(BASE_DIR, 'database.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['REMEMBER_COOKIE_DURATION']    = timedelta(days=30)
+    app.config['REMEMBER_COOKIE_DURATION']    = timedelta(hours=1)
+    app.config['REMEMBER_COOKIE_HTTPONLY']    = True
+    app.config['REMEMBER_COOKIE_SAMESITE']    = 'Lax'
+    app.config['SESSION_COOKIE_SAMESITE']     = 'Lax'
+    app.config['PERMANENT_SESSION_LIFETIME']  = timedelta(hours=1)
 
     CORS(app, supports_credentials=True)
     db.init_app(app)

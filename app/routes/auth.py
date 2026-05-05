@@ -63,6 +63,7 @@ def login():
     if not admin or not check_password_hash(admin.password_hash, password):
         return jsonify({'error': 'Invalid email or password.'}), 401
 
+    session.permanent = remember_me
     login_user(admin, remember=remember_me)
     return jsonify({
         'message': 'Login successful.',
@@ -100,7 +101,7 @@ def forgot_password():
         db.session.commit()
 
         reset_link = f'http://localhost:5000/auth/reset-password/{token_str}'
-        print(f'[RESET LINK] {reset_link}')  # logged to console only
+        print(f'[RESET LINK] {reset_link}', flush=True)  # logged to console only
 
     return jsonify({'message': msg}), 200
 
