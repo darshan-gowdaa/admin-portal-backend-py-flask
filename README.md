@@ -8,28 +8,135 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
 [![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://sqlite.org)
-[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-22c55e?style=for-the-badge)]()
 
 *A full-stack admin portal for managing opportunities, learners, verifiers, and collaborators — built on Flask + SQLite with a pre-designed modern UI.*
 
-[Features](#-features) · [Quick Start](#-quick-start) · [API Reference](#-api-reference) · [Architecture](#-architecture) · [Tests](#-running-tests)
+**My Repo** · [github.com/darshan-gowdaa/admin-portal-backend-py-flask](https://github.com/darshan-gowdaa/admin-portal-backend-py-flask)
+
+[Features](#-features) · [Screenshots](#-screenshots) · [Quick Start](#-quick-start) · [API Reference](#-api-reference) · [Architecture](#-architecture) · [Tests](#-running-tests)
+
+---
+
+<p align="center"> <a href="https://drive.google.com/file/d/1d-CmdBSWoVJl9tIseu0rKCgbN8Hsqudk/view?usp=drive_link"> <img src="https://img.shields.io/badge/▶️%20Watch%20Demo%20Video-Open%20in%20Google%20Drive-4285F4?style=for-the-badge&logo=google-drive&logoColor=white" /> </a> </p>
+
 
 ---
 
 </div>
 
-## 📸 Overview
 
-The Qatar Foundation Admin Portal is a single-page application (SPA) that provides institutional administrators a secure, role-isolated dashboard to:
 
-- **Authenticate** via signup / login / forgot-password flows with CAPTCHA
-- **Manage opportunities** — create, view, edit, delete with full persistence
-- **View learner, verifier, and collaborator data** across the platform
-- **Analyze** platform usage via charts and statistics
-- **Isolate data** between admin accounts so no cross-contamination occurs
+## 🧩 Project Context
 
-The frontend is a pre-built, pixel-perfect Admin UI. This project delivers the entire Python/Flask backend that powers it.
+This is a **full-stack intern assessment** for CertifyMe / Qatar Foundation.
+
+| Part | Source | Author |
+|---|---|---|
+| **Frontend** (HTML, CSS, JS) | Cloned from [Neerajvs32/Test1](https://github.com/Neerajvs32/Test1) | Original UI owner |
+| **Backend** (Flask, SQLAlchemy, auth, API) | Built from scratch | [Darshan Gowda](https://github.com/darshan-gowdaa) |
+
+> The `frontend/` directory (`admin.html`, `admin.css`, `admin.js`) was **not modified**. Every line of Python — models, routes, app factory, tests — was written independently to power the existing UI.
+
+---
+
+## 📸 Screenshots
+
+### Task 1 — Login & Signup
+
+#### US-1.1 · Admin Sign Up
+
+<img src="https://github.com/user-attachments/assets/f9f98503-4b84-4aaa-b7cb-c8fed669721e" width="100%" alt="Sign Up Page"/>
+
+<br/>
+
+> **Duplicate email error** — shown when account already exists
+
+<img src="https://github.com/user-attachments/assets/de85400a-3f6c-479e-8f02-5d1eccf17512" width="100%" alt="Sign Up — Email Already Exists"/>
+
+---
+
+#### US-1.2 · Admin Login
+
+<img src="https://github.com/user-attachments/assets/6a04bb7b-8c26-46be-9292-5c67f18e750e" width="100%" alt="Login Page"/>
+
+---
+
+#### US-1.3 · Forgot Password
+
+<table>
+<tr>
+<td width="60%">
+
+**Forgot Password Form**
+
+<img src="https://github.com/user-attachments/assets/ceb9c87b-011f-44e7-ae07-a91011ac84cf" width="100%" alt="Forgot Password"/>
+
+</td>
+<td width="40%">
+
+**Reset token saved in DB**
+
+<img src="https://github.com/user-attachments/assets/396a7cfc-0bd5-41bf-a735-aece2438e200" width="100%" alt="Password Reset Token in Database"/>
+
+</td>
+</tr>
+</table>
+
+---
+
+### Task 2 — Opportunity Management
+
+#### US-2.1 · View All Opportunities
+
+<img src="https://github.com/user-attachments/assets/50355583-f39e-4091-b487-59a60bbc554a" width="100%" alt="View All Opportunities"/>
+
+---
+
+#### US-2.2 · Add New Opportunity
+
+<table>
+<tr>
+<td width="50%">
+
+**Form — top half**
+
+<img src="https://github.com/user-attachments/assets/5dae4dcb-41df-44d4-b673-be2b6f75e177" width="100%" alt="Add Opportunity Modal — Top"/>
+
+</td>
+<td width="50%">
+
+**Form — bottom half**
+
+<img src="https://github.com/user-attachments/assets/9e47a938-86e2-4cdf-833e-ba2b97abd403" width="100%" alt="Add Opportunity Modal — Bottom"/>
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+**Opportunity card created and visible immediately (no page refresh)**
+
+<img src="https://github.com/user-attachments/assets/310a7f4c-2364-4fcf-9c48-b01307294342" width="100%" alt="Opportunity Card Added to Grid"/>
+
+---
+
+#### US-2.4 · View Opportunity Details
+
+<img src="https://github.com/user-attachments/assets/a195bdf5-4ceb-4ec6-b4ac-50c940af0afd" width="100%" alt="Opportunity Details Modal"/>
+
+---
+
+#### US-2.5 · Edit Opportunity
+
+<img src="https://github.com/user-attachments/assets/d92ad40d-b0db-4fba-96d7-0f21ed072092" width="100%" alt="Edit Opportunity — Pre-filled Modal"/>
+
+---
+
+#### US-2.6 · Delete Confirmation
+
+<img src="https://github.com/user-attachments/assets/bfb14295-1daa-4380-bfa8-23725d42f986" width="100%" alt="Delete Confirmation Dialog"/>
 
 ---
 
@@ -39,7 +146,7 @@ The frontend is a pre-built, pixel-perfect Admin UI. This project delivers the e
 | Feature | Detail |
 |---|---|
 | Signup | Full name, email, password validation + duplicate detection |
-| Login | Bcrypt password verification, generic error messages, session management |
+| Login | Password verification, generic error messages, session management |
 | Remember Me | Long-lived persistent cookie vs session-scoped cookie |
 | Forgot Password | Privacy-safe response regardless of email existence |
 | Reset Password | Tokenized reset link (1-hour expiry, single-use), logged to console |
@@ -56,17 +163,17 @@ The frontend is a pre-built, pixel-perfect Admin UI. This project delivers the e
 | Persistence | SQLite storage — data survives logout/login cycles |
 
 ### 📊 Dashboard Modules
-- **Learner Management** — student table with status filters and date range, course management grid, bulk upload + quick-add modals
-- **Verifier Management** — verifier table with stats, subject breakdown, student progress view
+- **Learner Management** — student table with status filters, course grid, bulk upload + quick-add modals
+- **Verifier Management** — verifier table with stats, subject breakdown, student progress
 - **Collaborator Management** — submitted course approval/rejection workflow
-- **Reports & Analytics** — engagement trend charts, completion rates, verification status tables, level distribution
+- **Reports & Analytics** — engagement trend charts, completion rates, verification status, level distribution
 
 ---
 
 ## 🏗 Architecture
 
 ```
-qatar-foundation-admin/
+admin-portal-backend-py-flask/
 │
 ├── app/
 │   ├── __init__.py          # Flask app factory, CORS, LoginManager, blueprints
@@ -76,10 +183,10 @@ qatar-foundation-admin/
 │       ├── auth.py          # /auth/* — signup, login, logout, forgot/reset password, status
 │       └── opportunities.py # /api/opportunities/* — full CRUD, ownership enforcement
 │
-├── frontend/
-│   ├── admin.html           # Single-page application shell (DO NOT MODIFY)
-│   ├── admin.css            # UI styles with CSS variables + dark mode (DO NOT MODIFY)
-│   └── admin.js             # SPA logic, API calls, DOM management (DO NOT MODIFY)
+├── frontend/                # Cloned from Neerajvs32/Test1 — NOT modified
+│   ├── admin.html
+│   ├── admin.css
+│   └── admin.js
 │
 ├── run.py                   # Entry point
 ├── test_all.py              # Full integration test suite (stdlib only)
@@ -112,7 +219,7 @@ Admin ────────────────────────�
 - Python 3.10+
 - pip
 
-### 1. Clone
+### 1. Clone this repo
 ```bash
 git clone https://github.com/darshan-gowdaa/admin-portal-backend-py-flask.git
 cd admin-portal-backend-py-flask
@@ -134,9 +241,7 @@ pip install -r requirements.txt
 python run.py
 ```
 
-The app starts at **http://localhost:5000**
-
-> On first boot, `database.db` is auto-created with all tables via `db.create_all()`. No migrations needed.
+Open **http://localhost:5000** — `database.db` is auto-created on first boot, no migrations needed.
 
 ---
 
@@ -159,7 +264,6 @@ Create a new admin account.
 }
 ```
 
-**Responses**
 | Status | Meaning |
 |---|---|
 | `201` | Account created |
@@ -180,7 +284,6 @@ Authenticate an existing admin.
 }
 ```
 
-**Responses**
 | Status | Meaning |
 |---|---|
 | `200` | Login successful — session cookie set |
@@ -189,39 +292,24 @@ Authenticate an existing admin.
 ---
 
 #### `POST /auth/logout`
-End the current session. Requires authentication.
-
-**Responses** — `200 OK`
+End the current session. Requires authentication. Returns `200 OK`.
 
 ---
 
 #### `POST /auth/forgot-password`
-Request a password reset link.
 
-**Request**
-```json
-{ "email": "jane@qf.org.qa" }
-```
+**Request** — `{ "email": "jane@qf.org.qa" }`
 
-**Responses** — Always `200` with identical message regardless of whether email exists. Reset link is logged to server console only.
+Always returns `200` with identical message regardless of whether email exists. Reset link is logged to server console only.
 
 ---
 
 #### `GET /auth/reset-password/<token>`
-Validate a reset token.
-
-| Status | Meaning |
-|---|---|
-| `200` | Token valid |
-| `400` | Token invalid, already used, or expired |
+Validate a reset token — `200` valid, `400` invalid/expired/used.
 
 #### `POST /auth/reset-password/<token>`
-Submit new password for a valid token.
 
-**Request**
-```json
-{ "password": "NewPass456!" }
-```
+**Request** — `{ "password": "NewPass456!" }`
 
 | Status | Meaning |
 |---|---|
@@ -231,7 +319,7 @@ Submit new password for a valid token.
 ---
 
 #### `GET /auth/status`
-Check current session state (used on page load).
+Check current session — used on page load to restore dashboard without re-login.
 
 ```json
 { "logged_in": true, "admin": { "id": 1, "full_name": "Jane Smith", "email": "jane@qf.org.qa" } }
@@ -244,58 +332,33 @@ Check current session state (used on page load).
 > All endpoints require an active session. Admins only access their own data.
 
 #### `GET /api/opportunities/`
-Returns all opportunities for the logged-in admin, ordered by `created_at` descending.
-
-```json
-[
-  {
-    "id": 1,
-    "admin_id": 3,
-    "name": "AI Internship",
-    "category": "Technology",
-    "duration": "3 months",
-    "start_date": "2025-09-01",
-    "description": "Work on AI projects",
-    "skills_to_gain": "Python,ML,TensorFlow",
-    "future_opportunities": "Full-time role",
-    "max_applicants": 50,
-    "created_at": "2025-05-01T12:00:00"
-  }
-]
-```
-
----
+Returns all opportunities for the logged-in admin, ordered newest first.
 
 #### `POST /api/opportunities/`
 Create a new opportunity linked to the logged-in admin.
 
-**Required fields:** `name`, `category`, `duration`, `start_date`, `description`, `skills_to_gain`, `future_opportunities`
+**Required:** `name`, `category`, `duration`, `start_date`, `description`, `skills_to_gain`, `future_opportunities`
 
-**Optional fields:** `max_applicants` (positive integer)
+**Optional:** `max_applicants` (positive integer)
 
 **Valid categories:** `Technology`, `Business`, `Design`, `Marketing`, `Data Science`, `Other`
 
 | Status | Meaning |
 |---|---|
-| `201` | Opportunity created — returns full object |
+| `201` | Created — returns full object |
 | `400` | Validation failure |
 | `401` | Not authenticated |
 
----
-
 #### `GET /api/opportunities/<id>`
-Fetch a single opportunity by ID.
 
 | Status | Meaning |
 |---|---|
 | `200` | Returns opportunity object |
-| `403` | Opportunity belongs to another admin |
+| `403` | Belongs to another admin |
 | `404` | Not found |
 
----
-
 #### `PUT /api/opportunities/<id>`
-Update an existing opportunity. Same validation rules as POST.
+Same validation rules as POST.
 
 | Status | Meaning |
 |---|---|
@@ -304,10 +367,7 @@ Update an existing opportunity. Same validation rules as POST.
 | `403` | Not owner |
 | `404` | Not found |
 
----
-
 #### `DELETE /api/opportunities/<id>`
-Permanently delete an opportunity.
 
 | Status | Meaning |
 |---|---|
@@ -319,13 +379,13 @@ Permanently delete an opportunity.
 
 ## 🧪 Running Tests
 
-The test suite (`test_all.py`) uses only Python stdlib — no pytest or extra packages required.
+Uses only Python stdlib — no pytest or extra packages required.
 
 ```bash
-# Start the server first
-python run.py &
+# Terminal 1 — start server
+python run.py
 
-# Then run tests
+# Terminal 2 — run tests
 python test_all.py
 ```
 
@@ -338,12 +398,11 @@ python test_all.py
 | Forgot Password | Registered email, unregistered email (privacy parity), correct message format |
 | CRUD | Create, read single, read list, update, delete, 404 after delete |
 | Validation | Missing required fields, invalid category, negative max_applicants |
-| Cross-admin isolation | Admin B cannot read/edit/delete Admin A's opportunities, list is empty |
-| Password reset | Full flow: trigger → read token from DB → validate → set new password → reuse blocked → login with new/old password |
-| Logout | Post-logout GET and POST blocked with 401 |
-| Static files | `/`, `/admin.css`, `/admin.js` all return 200 |
+| Cross-admin isolation | Admin B cannot read/edit/delete Admin A's data, list returns empty |
+| Password reset | Full flow: trigger → read DB token → validate → set new password → reuse blocked → login new/old |
+| Logout protection | POST-logout GET and POST both blocked with 401 |
+| Static files | `/`, `/admin.css`, `/admin.js` all serve 200 |
 
-Expected output:
 ```
 === FINAL RESULTS: 42 passed, 0 failed ===
 ALL TESTS PASSED
@@ -353,31 +412,28 @@ ALL TESTS PASSED
 
 ## 🔒 Security
 
-- Passwords hashed with **Werkzeug's PBKDF2-SHA256** (`generate_password_hash`)
-- Login errors are **generic** — never reveals whether email or password was wrong
-- Password reset tokens are **cryptographically random** (`secrets.token_urlsafe(32)`)
-- Reset tokens **expire after 1 hour** and are **single-use** (marked `used=True` on consumption)
+- Passwords hashed with **Werkzeug PBKDF2-SHA256** (`generate_password_hash`)
+- Login errors **generic** — never reveals which field failed
+- Reset tokens **cryptographically random** (`secrets.token_urlsafe(32)`)
+- Reset tokens **expire after 1 hour**, **single-use** (marked `used=True` after consumption)
 - Forgot-password always returns **identical response** regardless of email existence
-- All opportunity routes enforce **ownership** — 403 on cross-admin access attempts
-- `HttpOnly` remember-me cookies, `SameSite=Lax` on both session and remember cookies
-- User input sanitized in frontend via `escapeHtml()` before DOM injection
+- All opportunity routes enforce **ownership** — 403 on cross-admin access
+- `HttpOnly` + `SameSite=Lax` on session and remember-me cookies
+- User input sanitized via `escapeHtml()` before DOM injection
 
 ---
 
 ## ⚙️ Configuration
 
-All config lives in `app/__init__.py` via the `create_app()` factory.
-
 | Key | Default | Description |
 |---|---|---|
-| `SECRET_KEY` | `change-me-in-production-abc123xyz` | Session signing key — **override via env var in production** |
+| `SECRET_KEY` | `change-me-in-production-abc123xyz` | Session signing key — **set via env var in production** |
 | `SQLALCHEMY_DATABASE_URI` | `sqlite:///database.db` | Database path |
 | `REMEMBER_COOKIE_DURATION` | 1 hour | Lifetime of remember-me cookie |
 | `PERMANENT_SESSION_LIFETIME` | 1 hour | Lifetime of permanent sessions |
 
-Set `SECRET_KEY` in production:
 ```bash
-export SECRET_KEY="your-random-secret-key-here"
+export SECRET_KEY="your-random-secret-here"
 python run.py
 ```
 
@@ -392,30 +448,35 @@ python run.py
 | ORM | Flask-SQLAlchemy | Database models and queries |
 | Auth | Flask-Login | Session management, `@login_required` |
 | Security | Werkzeug | Password hashing |
-| Database | SQLite | Persistent storage (zero-config) |
+| Database | SQLite | Persistent storage, zero-config |
 | CORS | Flask-CORS | Cross-origin request support |
-| Frontend | Vanilla JS + CSS | Pre-built SPA — not modified |
+| Frontend | Vanilla JS + CSS | Pre-built SPA from Neerajvs32/Test1, not modified |
 
 ---
 
-## 📁 Frontend Notes
+## 📁 Frontend Credit
 
-> ⚠️ The `frontend/` directory is **read-only**. No changes were made to `admin.html`, `admin.css`, or `admin.js`.
+The `frontend/` directory was cloned from **[Neerajvs32/Test1](https://github.com/Neerajvs32/Test1)** and is the original work of that repository's author. Zero modifications were made to `admin.html`, `admin.css`, or `admin.js`.
 
-The frontend communicates with the backend exclusively via:
-- `fetch('/auth/signup')` · `fetch('/auth/login')` · `fetch('/auth/logout')`
-- `fetch('/auth/status')` — called on DOMContentLoaded to restore session
-- `fetch('/api/opportunities/')` — CRUD calls with JSON payloads
+The frontend connects to the backend via these fetch calls:
 
-All DOM updates (card append, update, remove) happen client-side without page refresh.
+```
+/auth/signup              POST
+/auth/login               POST
+/auth/logout              POST
+/auth/status              GET    ← called on DOMContentLoaded to restore session
+/api/opportunities/       GET, POST
+/api/opportunities/<id>   GET, PUT, DELETE
+```
+
+All DOM updates (card append, update, remove) happen client-side — no page refresh required.
 
 ---
 
 ## 👤 Author
 
-Built as part of the **CertifyMe Full Stack Intern Assessment**.
+**Darshan Gowda** · [github.com/darshan-gowdaa](https://github.com/darshan-gowdaa)
 
-- Original UI Repository: [github.com/Neerajvs32/Test1](https://github.com/Neerajvs32/Test1)
-- Backend authored from scratch — Flask, SQLAlchemy, Flask-Login, Flask-CORS
+Built as part of the **CertifyMe Full Stack Intern Assessment** — Day 1 (Auth) + Day 2 (Opportunity Management).
 
 ---
