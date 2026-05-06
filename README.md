@@ -254,13 +254,13 @@ All endpoints return JSON. Auth endpoints live under `/auth`, opportunity endpoi
 #### `POST /auth/signup`
 Create a new admin account.
 
-**Request**
+**Request** *(Note: These are dummy credentials for illustration)*
 ```json
 {
-  "full_name": "Fake Smith",
-  "email": "fake@qf.org.qa",
-  "password": "NotAtAllSecure!",
-  "confirm_password": "NotAtAllSecure!"
+  "full_name": "Jane Smith",
+  "email": "jane@qf.org.qa",
+  "password": "Secure123!",
+  "confirm_password": "Secure123!"
 }
 ```
 
@@ -275,7 +275,7 @@ Create a new admin account.
 #### `POST /auth/login`
 Authenticate an existing admin.
 
-**Request**
+**Request** *(Note: Uses dummy credentials)*
 ```json
 {
   "email": "jane@qf.org.qa",
@@ -322,7 +322,7 @@ Validate a reset token — `200` valid, `400` invalid/expired/used.
 Check current session — used on page load to restore dashboard without re-login.
 
 ```json
-{ "logged_in": true, "admin": { "id": 1, "full_name": "Fake Smith", "email": "fake@qf.org.qa" } }
+{ "logged_in": true, "admin": { "id": 1, "full_name": "Jane Smith", "email": "jane@qf.org.qa" } }
 ```
 
 ---
@@ -418,7 +418,7 @@ ALL TESTS PASSED
 - Reset tokens **expire after 1 hour**, **single-use** (marked `used=True` after consumption)
 - Forgot-password always returns **identical response** regardless of email existence
 - All opportunity routes enforce **ownership** — 403 on cross-admin access
-- `HttpOnly` + `SameSite=Lax` on session and remember-me cookies
+- `HttpOnly` + `SameSite=Strict` on session and remember-me cookies
 - User input sanitized via `escapeHtml()` before DOM injection
 
 ---
@@ -427,7 +427,7 @@ ALL TESTS PASSED
 
 | Key | Default | Description |
 |---|---|---|
-| `SECRET_KEY` | `change-me-in-production-abc123xyz` | Session signing key — **set via env var in production** |
+| `SECRET_KEY` | *(secure random 32-byte string)* | Session signing key — **set via env var in production** |
 | `SQLALCHEMY_DATABASE_URI` | `sqlite:///database.db` | Database path |
 | `REMEMBER_COOKIE_DURATION` | 1 hour | Lifetime of remember-me cookie |
 | `PERMANENT_SESSION_LIFETIME` | 1 hour | Lifetime of permanent sessions |
