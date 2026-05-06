@@ -1,4 +1,5 @@
 import os
+import secrets
 from datetime import timedelta
 
 from flask import Flask, send_from_directory
@@ -16,16 +17,18 @@ FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 def create_app():
     app = Flask(__name__, static_folder=FRONTEND_DIR, template_folder=FRONTEND_DIR)
 
-    app.config['SECRET_KEY']                  = os.environ.get('SECRET_KEY', 'change-me-in-production-abc123xyz')
+    app.config['SECRET_KEY']                  = os.environ.get('SECRET_KEY') or secrets.token_hex(32)
     app.config['SQLALCHEMY_DATABASE_URI']     = 'sqlite:///' + os.path.join(BASE_DIR, 'database.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['REMEMBER_COOKIE_DURATION']    = timedelta(hours=1)
     app.config['REMEMBER_COOKIE_HTTPONLY']    = True
-    app.config['REMEMBER_COOKIE_SAMESITE']    = 'Lax'
-    app.config['SESSION_COOKIE_SAMESITE']     = 'Lax'
+    app.config['REMEMBER_COOKIE_SAMESITE']    = 'Strict'
+    app.config['SESSION_COOKIE_HTTPONLY']     = True
+    app.config['SESSION_COOKIE_SAMESITE']     = 'Strict'
     app.config['PERMANENT_SESSION_LIFETIME']  = timedelta(hours=1)
 
-    CORS(app, supports_credentials=True)
+    # restrict cors
+    CORS(app, supports_credentials=True, origins=['http://localhost:5000', 'http://127.0.0.1:5000'])
     db.init_app(app)
 
     login_manager = LoginManager()

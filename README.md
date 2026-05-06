@@ -1,203 +1,120 @@
-# 📘 CertifyMe — Full Stack Intern Assessment
+<div align="center">
+  <h1>🌟 Qatar Foundation — Admin Portal</h1>
+  <p><i>A robust, Flask-powered backend serving a sleek Admin Dashboard for managing platform opportunities.</i></p>
+
+  <!-- Badges -->
+  <p>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+    <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+  </p>
+</div>
+
+---
+
+## 📖 Overview
+
+This repository contains the backend implementation for the **Qatar Foundation Admin Portal**. Built as part of a full-stack assessment, it focuses on delivering a secure, session-managed RESTful API using **Python** and **Flask** to seamlessly integrate with an existing, pre-built frontend UI.
+
+The platform empowers administrators to manage opportunities (like internships or courses) dynamically, ensuring data persistence, user authentication, and a smooth, asynchronous user experience.
+
+---
+
+
+
+## ✨ Key Features & User Stories Implemented
+
+### 🔐 Task 1: Authentication & Security
+- **Admin Sign Up:** Secure registration with email validation, strong password enforcement, and duplicate account prevention.
+- **Admin Login:** Robust authentication with session management. Features a "Remember Me" toggle for persistent vs. browser-session login states.
+- **Forgot Password:** Privacy-focused password recovery flow generating time-limited (1-hour) reset links.
+
+### 💼 Task 2: Opportunity Management
+- **View Opportunities:** Dynamic dashboard displaying opportunities exclusively created by the currently logged-in admin (Multi-tenant architecture).
+- **Add Opportunity:** Comprehensive form with field validation for Name, Duration, Start Date, Description, Skills, Category, etc. Updates UI asynchronously without page reloads.
+- **Data Persistence:** All opportunities are securely stored in the SQLite database.
+- **View Details:** Interactive modals displaying full details of each opportunity.
+- **Edit & Update:** Pre-filled edit forms allowing admins to instantly update records.
+- **Secure Deletion:** Protected delete functionality with confirmation dialogues, ensuring admins can only delete their own data.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend Logic:** Python 3.x
+- **Web Framework:** Flask
+- **Database:** SQLite (using SQLAlchemy / Flask-SQLAlchemy)
+- **Frontend:** HTML, CSS, JavaScript (Fetch API for asynchronous DOM updates)
 
 ---
 
 ## 🚀 Getting Started
 
-1. **Clone the provided repository**
+Follow these steps to run the application locally on your machine.
+
+### Prerequisites
+- Python 3.8+ installed on your system.
+- Git.
+
+### Installation
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/Neerajvs32/Test1.git
+   git clone https://github.com/darshan-gowdaa/admin-portal-backend-py-flask.git
+   cd admin-portal-backend-py-flask
    ```
 
-2. **Create your own GitHub repository**
-   - Push the cloned project to your own GitHub account.
-   - Share your repository link after completing the task.
+2. **Create and activate a virtual environment**
+   - **Windows:**
+     ```bash
+     python -m venv .venv
+     .venv\Scripts\activate
+     ```
+   - **Mac/Linux:**
+     ```bash
+     python3 -m venv .venv
+     source .venv/bin/activate
+     ```
 
-3. **Development Requirement**
-   - Both Frontend and Backend must run together.
-   - The UI must remain exactly the same.
-   - ❌ Do NOT modify frontend design or components.
-   - ✅ Build the backend required for the existing UI functionality.
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
----
+4. **Run the Flask Application**
+   ```bash
+   python run.py
+   ```
+   *The server will typically start on `http://127.0.0.1:5000`.*
 
-## 🏢 Project Overview
+5. **Access the Portal**
+   Open your browser and navigate to `http://127.0.0.1:5000` to view the Admin Portal!
 
-This project is part of the **CertifyMe Full Stack Intern Assessment**. The repository already contains a complete Admin UI. Your responsibility is to **build the backend and connect it with the existing frontend**.
-
-### Objectives
-- Build backend APIs using Flask
-- Connect frontend with backend
-- Store and retrieve data from database
-- Make the application fully functional
-
-### 🔗 Original Repository
-[https://github.com/Neerajvs32/Test1](https://github.com/Neerajvs32/Test1)
-
----
-
-## ⚙️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Backend | Python |
-| Framework | Flask |
-| Database | SQLite / MySQL / PostgreSQL |
-| Frontend | Pre-built Admin UI |
+   > **Note on Credentials:** There are no pre-configured default accounts. Please use the "Sign Up" page to create a new admin account. Any usernames, emails, and passwords shown in screenshots or testing scripts are purely dummy credentials for demonstration purposes only.
 
 ---
 
-## 🧩 Features & User Stories
+## 📂 Project Structure
+
+```text
+📦 admin-portal-backend
+ ┣ 📂 app
+ ┃ ┣ 📜 routes.py       # API endpoints and route handlers
+ ┃ ┣ 📜 models.py       # Database schema
+ ┃ ┗ 📜 ...             # Core application logic
+ ┣ 📂 frontend          # Static UI files provided for the assessment
+ ┣ 📜 database.db       # SQLite Database
+ ┣ 📜 run.py            # Application entry point
+ ┣ 📜 requirements.txt  # Python dependencies
+ ┣ 📜 test_all.py       # Test scripts
+ ┗ 📜 README.md         # Project documentation
+```
 
 ---
 
-### ✅ Task 1 — Authentication *(Day 1)*
+## 🎯 Final Assessment Notes
+- **Frontend Integrity:** The provided frontend UI was left completely untouched as per the strict assessment requirements.
+- **Backend Architecture:** RESTful endpoints were meticulously designed to support the pre-built JavaScript fetch calls, ensuring the UI remains highly responsive.
+- **Data Isolation:** Complete data privacy has been achieved; sessions securely link entries so admins solely view and interact with their own data.
 
----
-
-#### US-1.1 — Admin Sign Up
-
-**Required Fields**
-- Full Name
-- Email
-- Password
-- Confirm Password
-
-**Validations**
-- All fields mandatory
-- Email must be valid
-- Password minimum 8 characters
-- Passwords must match
-- Email must be unique
-
-**Expected Result**
-- Save admin account
-- Redirect to Login page
-
----
-
-#### US-1.2 — Admin Login
-
-**Fields**
-- Email
-- Password
-- Remember Me checkbox
-
-**Rules**
-- Show generic error on failure:
-  ```
-  Invalid email or password
-  ```
-
-**Expected Result**
-- Redirect to dashboard
-- Load opportunities created by the admin
-
-**Session Handling**
-
-| Condition | Behaviour |
-|---|---|
-| Remember Me checked | Long-lived session |
-| Remember Me unchecked | Session ends when browser closes |
-
----
-
-#### US-1.3 — Forgot Password
-
-**Requirements**
-- Admin enters their email
-- Always show the same success message (regardless of whether email exists)
-
-**Behaviour**
-- Generate reset link internally
-- No email sending required
-
-**Security**
-- Reset link expires after **1 hour**
-- Expired link shows an error
-
----
-
-### ✅ Task 2 — Opportunity Management *(Day 2)*
-
-> All opportunities must be stored in the database, linked to the logged-in admin, and must never use hardcoded data.
-
----
-
-#### US-2.1 — View All Opportunities
-
-**Each opportunity card must display:**
-- Opportunity Name
-- Category
-- Duration
-- Start Date
-- Description
-
-**Rules**
-- Show only the logged-in admin's opportunities
-- Remove all demo / hardcoded cards
-- Show an empty state if no opportunities exist
-
----
-
-#### US-2.2 — Add New Opportunity
-
-**Required Fields**
-- Opportunity Name
-- Duration
-- Start Date
-- Description
-- Skills to Gain *(comma separated)*
-- Category
-- Future Opportunities
-
-**Optional Field**
-- Maximum Applicants
-
-**Category Options**
-- Technology
-- Business
-- Design
-- Marketing
-- Data Science
-- Other
-
-**Expected Result**
-- Validate all required fields
-- Save opportunity to database
-- Link opportunity to logged-in admin
-- Display immediately **without page refresh**
-
----
-
-#### US-2.3 — Opportunities Persist After Login
-
-- Opportunities must load after logout / login cycles
-- Stored only in the database — **no local storage usage**
-- Admins cannot access other admins' data
-
----
-
-#### US-2.4 — View Opportunity Details
-
-- Open a details modal
-- Show all saved fields
-- Close button available
-
----
-
-#### US-2.5 — Edit Opportunity
-
-- Edit button opens a pre-filled form
-- Apply the same validations as during creation
-- Update only the selected opportunity
-- Reflect changes instantly **without page refresh**
-
----
-
-#### US-2.6 — Delete Opportunity
-
-- Show a confirmation dialog before deletion
-- Delete permanently from the database
-- Remove from UI immediately **without page refresh**
-- Only the creator admin can delete their own opportunity
+<br>

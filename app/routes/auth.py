@@ -60,7 +60,12 @@ def login():
     remember_me = bool(data.get('remember_me'))
 
     admin = Admin.query.filter_by(email=email).first()
-    if not admin or not check_password_hash(admin.password_hash, password):
+    if not admin:
+        # prevent timing attack
+        generate_password_hash(password if password else 'dummy')
+        return jsonify({'error': 'Invalid email or password.'}), 401
+
+    if not check_password_hash(admin.password_hash, password):
         return jsonify({'error': 'Invalid email or password.'}), 401
 
     session.permanent = remember_me
