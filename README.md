@@ -430,7 +430,7 @@ ALL TESTS PASSED
 | `SECRET_KEY` | *(secure random 32-byte string)* | Session signing key — **set via env var in production** |
 | `SQLALCHEMY_DATABASE_URI` | `sqlite:///database.db` | Database path |
 | `REMEMBER_COOKIE_DURATION` | 1 hour | Lifetime of remember-me cookie |
-| `PERMANENT_SESSION_LIFETIME` | 1 hour | Lifetime of permanent sessions |
+| `PERMANENT_SESSION_LIFETIME` | 1 hour | Lifetime of perma\nent sessions |
 
 ```bash
 export SECRET_KEY="your-random-secret-here"
